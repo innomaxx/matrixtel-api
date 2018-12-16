@@ -1,0 +1,35 @@
+{
+  "name": "matrixtel-api",
+  "version": "0.1.0",
+  "description": "Matrix Telecom Cabinet API",
+  "main": "build/core",
+  "author": "innomaxx",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "node-fetch": "^2.3.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "rollup-plugin-babel": "^4.1.0",
+    "rollup-plugin-node-resolve": "^4.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "yarn run build -w",
+    "debug": "yarn run build && nodemon -e js build/core"
+  },
+  "babel": {
+    "comments": false,
+    "plugins": [
+      [
+        "module-resolver", {
+          "root": ["./src"]
+        }
+      ],
+      "@babel/plugin-proposal-object-rest-spread"
+    ]
+  }
+}
