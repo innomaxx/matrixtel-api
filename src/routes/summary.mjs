@@ -1,7 +1,7 @@
 
 import fetch from "node-fetch"
 import cheerio from "cheerio"
-import getSessionID from "tools/getSessionID"
+import getSessionID from "../tools/getSessionID"
 
 export default async function (ctx) {
   const result = await getSummary(ctx.query)

@@ -2,8 +2,8 @@
 import Koa from "koa"
 import Router from "koa-router"
 
-import summaryHandler from "routes/summary"
-import paymentsHandler from "routes/payments"
+import summaryHandler from "./routes/summary"
+import paymentsHandler from "./routes/payments"
 
 const app = new Koa(), router = new Router()
 
