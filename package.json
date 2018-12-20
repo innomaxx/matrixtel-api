@@ -18,8 +18,8 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "watch": "yarn run build -w",
-    "debug": "yarn run build && nodemon -e js build/core"
+    "watch": "yarn build -w",
+    "debug": "nodemon -e js build/core"
   },
   "babel": {
     "comments": false,
