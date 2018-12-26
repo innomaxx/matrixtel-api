@@ -11,7 +11,7 @@ export default function getSessionID (login, pass) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: stringify({ login, pass, go: "" })
     }, (err, res) => {
-      if (err) reject(err)
+      if (err) return reject(err)
       resolve(res.headers["set-cookie"][0].split(";")[0].split("=")[1])
     })
   })
