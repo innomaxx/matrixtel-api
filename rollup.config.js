@@ -1,6 +1,7 @@
 
 import pkg from "./package.json";
 import babel from "rollup-plugin-babel";
+import minify from "rollup-plugin-minify-es"
 import resolve from 'rollup-plugin-node-resolve';
 
 export default [
@@ -11,6 +12,7 @@ export default [
       ...Object.keys(pkg.dependencies)
     ],
     plugins: [
+      minify(),
       resolve(),  // preferBuiltins: true
       babel({ ...pkg.babel, babelrc: false })
     ],
