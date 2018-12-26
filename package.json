@@ -1,6 +1,6 @@
 {
   "name": "matrixtel-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Matrix Telecom Cabinet API",
   "main": "build/core",
   "author": "innomaxx",
