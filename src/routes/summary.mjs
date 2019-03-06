@@ -4,8 +4,9 @@ import cheerio from "cheerio"
 import getSessionID from "../tools/getSessionID"
 
 export default async function (ctx) {
-  const result = await getSummary(ctx.query)
-  ctx.body = result
+  return getSummary(ctx.query)
+    .catch(err => ({ error: err }))
+    .then(res => { ctx.body = res })
 }
 
 function getSummary ({ login, pass }) {
@@ -57,7 +58,7 @@ function getSummary ({ login, pass }) {
         })
 
       })
-    })
+    }).catch(reject)
   })
 }
 
