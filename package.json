@@ -22,6 +22,6 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "yarn build -w",
-    "debug": "nodemon -e js build/core"
+    "debug": "yarn build && nodemon -e js build/core"
   }
 }
