@@ -3,6 +3,7 @@ import pkg from "./package.json";
 import babel from "rollup-plugin-babel";
 import minify from "rollup-plugin-minify-es"
 import resolve from 'rollup-plugin-node-resolve';
+import sourcemaps from 'rollup-plugin-sourcemaps'
 
 export default [
   {
@@ -13,12 +14,14 @@ export default [
     ],
     plugins: [
       minify(),
-      resolve(),  // preferBuiltins: true
-      babel({ ...pkg.babel, babelrc: false })
+      resolve(),
+      sourcemaps()
     ],
-    output: [
-      { file: `${pkg.main}.js`, format: "cjs", exports: "named" },
-      { file: `${pkg.main}.mjs`, format: "esm" }
-    ]
+    output: {
+      file: `${pkg.main}.js`,
+      format: "cjs",
+      exports: "named",
+      sourcemap: true
+    }
   }
 ]
