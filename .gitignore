@@ -1,5 +1,7 @@
 
-/.archive/
-/build/
-node_modules/
 .vscode
+.archive/
+.rpt2_cache/
+
+build/
+node_modules/
