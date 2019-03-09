@@ -1,9 +1,9 @@
 
-const request = require("request")
-import Fetch from "node-fetch"
+import request from "request";
 import { stringify } from "querystring"
 
-export default function getSessionID (login, pass) {
+export default function getSessionID (opt: IOptions) : Promise<string> {
+  const { login, password:pass } = opt
   return new Promise((resolve, reject) => {
     request({
       method: "POST",
@@ -12,7 +12,16 @@ export default function getSessionID (login, pass) {
       body: stringify({ login, pass, go: "" })
     }, (err, res) => {
       if (err) return reject(err)
-      resolve(res.headers["set-cookie"][0].split(";")[0].split("=")[1])
+      resolve(
+        res.headers["set-cookie"]
+        ? res.headers["set-cookie"][0].split(";")[0].split("=")[1]
+        : ""
+      )
     })
   })
+}
+
+export interface IOptions {
+  login: string
+  password: string
 }

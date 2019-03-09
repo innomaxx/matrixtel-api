@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "build",
+
+    "lib": ["esnext"],
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+
+    "strict": true,
+    "sourceMap": true,
+    "declaration": false,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,    
+
+    "baseUrl": "src",
+    "paths": {
+      "$tools/*": ["tools/*"],
+      "$components/*": ["components/*"]
+    }
+  }
+}

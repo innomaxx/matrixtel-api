@@ -1,13 +1,13 @@
 
 import pkg from "./package.json";
-import babel from "rollup-plugin-babel";
 import minify from "rollup-plugin-minify-es"
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from "rollup-plugin-node-resolve"
 import sourcemaps from 'rollup-plugin-sourcemaps'
+import typescript from "rollup-plugin-typescript2"
 
 export default [
   {
-    input: "src/core.mjs",
+    input: "src/core.ts",
     external: [
       "querystring",
       ...Object.keys(pkg.dependencies)
@@ -15,7 +15,8 @@ export default [
     plugins: [
       minify(),
       resolve(),
-      sourcemaps()
+      sourcemaps(),
+      typescript()
     ],
     output: {
       file: `${pkg.main}.js`,
