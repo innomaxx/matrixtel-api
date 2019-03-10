@@ -9,9 +9,10 @@ const app = new Koa(), router = new Router()
 router.get("/summary", routes.summaryHandler)
 router.get("/payments", routes.paymentsHandler)
 
-app
-  .use(router.routes())
-  .listen(process.env.PORT || 4500)
-
-console.clear()
-console.log("\nStarted\n")
+app.use(router.routes())
+app.listen(process.env.PORT || 4500, () => {
+  if (process.env.NODE_ENV !== "production") {
+    console.clear()
+    console.log("Started")
+  }
+})
