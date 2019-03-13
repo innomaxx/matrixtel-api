@@ -3,12 +3,8 @@ import { BaseContext } from "koa"
 import fetch from "node-fetch"
 import getSessionID from "$tools/getSessionID"
 
-import UserEntry from "$components/users/UserEntry"
-import UsersManager from "$components/users/UsersManager"
-
-import APIError from "$components/response/APIError"
-import APIResponse from "$components/response/APIResponse"
-import ProcessResult from "$components/response/ProcessResult"
+import { UserEntry, UsersManager } from "$components/users"
+import { APIError, APIResponse, ProcessResult } from "$components/response"
 
 import ILoginCredentials from "$components/request/ILoginCredentials"
 
