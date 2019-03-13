@@ -11,8 +11,8 @@ export default class APIResponse {
     const isErrorPassed = input instanceof APIError
 
     this.ok = !isErrorPassed
-    this.error = isErrorPassed ? input : null
     this.cached = false
+    this.error = isErrorPassed ? input : null
     this.response = isErrorPassed ? null : input
   }
 }
