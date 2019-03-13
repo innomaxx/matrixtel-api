@@ -1,13 +1,14 @@
 
 import cheerio from "cheerio"
 import Transaction from "./abstractions/Transaction"
+import setResponseRange from "./setResponseRange"
 
 import { Context } from "koa"
 
-export default function parseEntity (page: string, ctx: Context) : Transaction[] {
+export default function parseEntity (page: string, ctx: Context) : IResponse {
   const $ = cheerio.load(page)
   const elements = $(".payments")[0].children[1].children
-  const transactions = []
+  const transactions: Transaction[] = []
 
   for (let x = 2; x < elements.length - 2; x += 2) {
     const rawData = []
@@ -21,5 +22,17 @@ export default function parseEntity (page: string, ctx: Context) : Transaction[]
     }
     transactions.push(new Transaction(rawData))
   }
-  return transactions
+
+  const { count, offset } = setResponseRange(ctx)
+  if (offset + count > transactions.length) throw "Out of range"
+
+  return {
+    count: transactions.length,
+    transactions: transactions.slice(offset, count + offset)
+  }
+}
+
+interface IResponse {
+  count: number
+  transactions: Transaction[]
 }
