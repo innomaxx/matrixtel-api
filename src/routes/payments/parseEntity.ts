@@ -2,7 +2,9 @@
 import cheerio from "cheerio"
 import Transaction from "./abstractions/Transaction"
 
-export default function parseEntity (page: string) : Transaction[] {
+import { Context } from "koa"
+
+export default function parseEntity (page: string, ctx: Context) : Transaction[] {
   const $ = cheerio.load(page)
   const elements = $(".payments")[0].children[1].children
   const transactions = []

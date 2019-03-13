@@ -8,7 +8,7 @@ import { APIError, APIResponse, ProcessResult } from "$components/response"
 
 import ILoginCredentials from "$components/request/ILoginCredentials"
 
-export type ParserFN = (page: string) => ProcessResult
+export type ParserFN = (page: string, ctx: RouteContext) => ProcessResult
 
 export default async function wrapRoute (
   route: string, parseEntity: ParserFN,
@@ -50,7 +50,7 @@ export default async function wrapRoute (
     // #endregion
 
     // #region Process page entity
-    response = parseEntity(page)
+    response = parseEntity(page, ctx)
     // #endregion
   } catch (e) {
     response = new APIError(e)
