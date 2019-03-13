@@ -2,7 +2,9 @@
 import request from "request";
 import { stringify } from "querystring"
 
-export default function getSessionID (opt: IOptions) : Promise<string> {
+import ILoginCredentials from "$components/request/ILoginCredentials"
+
+export default function getSessionID (opt: ILoginCredentials) : Promise<string> {
   const { login, password:pass } = opt
   return new Promise((resolve, reject) => {
     request({
@@ -19,9 +21,4 @@ export default function getSessionID (opt: IOptions) : Promise<string> {
       )
     })
   })
-}
-
-export interface IOptions {
-  login: string
-  password: string
 }
