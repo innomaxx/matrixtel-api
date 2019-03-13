@@ -1,18 +1,35 @@
 
 export default class APIError {
-  readonly code: number
-  readonly message: string
-  readonly related: object | null
+  private code: number
+  private message: string
+  private related: object | null
 
-  constructor (e: any) {
+  constructor (input: any) {
     this.code = -1
     this.message = ""
     this.related = null
 
-    if (e instanceof Object && !(e instanceof Array)) {
-      this.code = e.code || -1
-      this.message = e.message || ""
-      this.related = e.related || e.stack || null
+    this.parseInput(input)
+  }
+
+  private parseInput (input: any) {
+    switch (typeof input) {
+      case "number":
+        this.code = input
+      break
+      case "string":
+        this.message = input
+      break
+      case "object":
+        if (Array.isArray(input)) {
+          this.related = input
+        } else {
+          const { code, message, ...other } = input
+          this.code = code || -1
+          this.message = message || "Error occured"
+          this.related = Object.keys(other).length ? other : null
+        }
+      break
     }
   }
 }
