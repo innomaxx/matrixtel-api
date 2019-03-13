@@ -1,8 +1,8 @@
 
-import { BaseContext } from "koa"
 import fetch from "node-fetch"
 import getSessionID from "$tools/getSessionID"
 
+import { Context as RouteContext } from "koa"
 import { UserEntry, UsersManager } from "$components/users"
 import { APIError, APIResponse, ProcessResult } from "$components/response"
 
@@ -11,8 +11,8 @@ import ILoginCredentials from "$components/request/ILoginCredentials"
 export type ParserFN = (page: string) => ProcessResult
 
 export default async function wrapRoute (
-  route: string, parseEntity: ParserFN, 
-  ctx: BaseContext, users: UsersManager
+  route: string, parseEntity: ParserFN,
+  ctx: RouteContext, users: UsersManager
 ) {
   let response,
       login: ILoginCredentials["login"] = "",

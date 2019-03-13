@@ -1,11 +1,11 @@
 
-import { BaseContext } from "koa"
+import { Context } from "koa"
 import UsersManager from "$components/users/UsersManager"
 
 import APIError from "$components/response/APIError"
 import APIResponse from "$components/response/APIResponse"
 
-export default async function (ctx: BaseContext, users: UsersManager) {
+export default async function (ctx: Context, users: UsersManager) {
   let response
   const { login, password } = ctx.query
   try {
