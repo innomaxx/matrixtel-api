@@ -1,9 +1,10 @@
 
 import wrapRoute from "../wrapper"
 import parseEntity from "./parseEntity"
+import UsersManager from "$components/users/UsersManager"
 
 import { BaseContext } from "koa"
 
-export default async function (ctx: BaseContext) {
-  return wrapRoute("/payments", parseEntity, ctx)
+export default async function (ctx: BaseContext, users: UsersManager) {
+  return wrapRoute("/payments", parseEntity, ctx, users)
 }
