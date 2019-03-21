@@ -211,6 +211,13 @@
   dependencies:
     "@types/koa" "*"
 
+"@types/koa-response-time@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/koa-response-time/-/koa-response-time-2.0.1.tgz#985b3d3d567ccda22cb0572c679fbdfcdfb91b97"
+  integrity sha512-A6ljG5tZ3kDo5GDmtVo/iJCxvl5WTKcVEgdRuakgby9oCVFIjFLzF3q6ZSBMJE7JWonTbEOkWBmij8yXq4gQpA==
+  dependencies:
+    "@types/koa" "*"
+
 "@types/koa-router@^7.0.40":
   version "7.0.40"
   resolved "https://registry.yarnpkg.com/@types/koa-router/-/koa-router-7.0.40.tgz#9654dbc43375a0380c44c49c4504b4dbfc3e4e6a"
@@ -1339,6 +1346,11 @@ koa-is-json@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/koa-is-json/-/koa-is-json-1.0.0.tgz#273c07edcdcb8df6a2c1ab7d59ee76491451ec14"
   integrity sha1-JzwH7c3Ljfaiwat9We52SRRR7BQ=
+
+koa-response-time@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/koa-response-time/-/koa-response-time-2.1.0.tgz#bc8473207255fcbddaf10004bd7a8e59f2e948c9"
+  integrity sha512-W2YvnmqmmdEwjJh2rvUPqDD+yjnKvIQry6JhV9dHEwGpfcRzjmQBRVNg62Czbvut/Dpf+l7b9uFauet157UeUQ==
 
 koa-router@^7.4.0:
   version "7.4.0"

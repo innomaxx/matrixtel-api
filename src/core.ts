@@ -5,6 +5,7 @@ import Koa from "koa"
 import Router from "koa-router"
 
 import * as routes from "./routes"
+import responseTime from "koa-response-time"
 
 import path from "path"
 import UsersManager from "$components/users/UsersManager"
@@ -24,6 +25,7 @@ router.get("/summary", ctx => routes.summaryHandler(ctx, users))
 router.get("/payments", ctx => routes.paymentsHandler(ctx, users))
 router.get("/register", ctx => routes.registerHandler(ctx, users))
 
+app.use(responseTime())
 app.use(router.routes())
 app.listen(process.env.PORT || 4500, () => {
   if (process.env.NODE_ENV !== "production") {
